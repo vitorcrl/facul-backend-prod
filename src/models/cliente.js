@@ -16,23 +16,23 @@ const Produto = sequelize.define("produto", {
         allowNull: false,
         type: Sequelize.STRING(100),
         validate: {
-            len: [3, 100],
+            len: [2, 100],
         },
     },
     descricao: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING(200),
         validate: {
             len: [1, 100],
         },
     },
     preco: {
-        allowNull: false,
-        type: Sequelize.STRING(),
+        allowNull: true,
+        type: Sequelize.DOUBLE(),
     },
     quantEstoque: {
-        allowNull: false,
-        type: Sequelize.NUMBER(),
+        allowNull: true,
+        type: Sequelize.DOUBLE(),
         defaultValue: true,
     },
 });

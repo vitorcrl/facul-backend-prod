@@ -55,20 +55,20 @@ exports.SelectDetail = (req, res, next) => {
 exports.Update = (req, res, next) => {
     const id = req.params.id;
     const nome = req.body.nome;
-    const salario = req.body.salario;
-    const dataNascimento = req.body.dataNascimento;
-    const ativo = req.body.ativo;
+    const descricao = req.body.descricao;
+    const preco = req.body.preco;
+    const quantEstoque = req.body.quantEstoque;
 
-    Cliente.findByPk(id)
+    Produto.findByPk(id)
         .then((cliente) => {
             if (cliente) {
                 cliente
                     .update(
                         {
                             nome: nome,
-                            salario: salario,
-                            dataNascimento: dataNascimento,
-                            ativo: ativo,
+                            descricao: descricao,
+                            preco: preco,
+                            quantEstoque: quantEstoque,
                         },
                         {
                             where: { id: id },
@@ -88,7 +88,7 @@ exports.Update = (req, res, next) => {
 exports.Delete = (req, res, next) => {
     const id = req.params.id;
 
-    Cliente.findByPk(id)
+    Produto.findByPk(id)
         .then((cliente) => {
             if (cliente) {
                 cliente
